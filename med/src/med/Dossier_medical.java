@@ -1,90 +1,88 @@
 package med;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Dossier_medical {
 
 	
 	    private int Num_dossier;
-	    private patient patient;
-	    private List<String> antecedents;
-	    private List<String> examens;
-	    private List<String> notes;
-	    private List<String> traitement;
+	    private FichePatient patient;
+	    private String antecedents;
+	    private String examens;
+	    private String notes;
+	    private String traitement;
+	    private String compterendu;  
+
+	   
+
+	    public Dossier_medical(int num_dossier, FichePatient patient, String antecedents, String examens, String notes,
+				String traitement, String compterendu) {
+			Num_dossier = num_dossier;
+			this.patient = patient;
+			this.antecedents = antecedents;
+			this.examens = examens;
+			this.notes = notes;
+			this.traitement = traitement;
+			this.compterendu = compterendu;
+		}
 
 
-	    // Constructeur
-	    public void DossierMedicale(int Num_dossier, patient patient) {
-	       
-	        this.antecedents = new ArrayList<>();
-	        this.examens = new ArrayList<>();
-	        this.notes = new ArrayList<>();
-	        this.traitement = new ArrayList<>();
-	    }
-
-	    // Méthodes pour ajouter des informations au dossier médical
-	    public void ajouterAntecedent(String antecedent) {
-	        this.antecedents.add(antecedent);
-	    }
-	    
-	    public void ajouterTraitement(String traitement) {
-	        this.traitement.add(traitement);
-	    }
-
-	    public void ajouterExamen(String examen) {
-	        this.examens.add(examen);
-	    }
-
-	    public void ajouterNote(String note) {
-	        this.notes.add(note);
-	    }
-	    
-	    // getters and setters
-	    public int getNum_dossier() {
+		public int getNum_dossier() {
 			return Num_dossier;
 		}
+
 		public void setNum_dossier(int num_dossier) {
 			Num_dossier = num_dossier;
 		}
-		
-		public patient getPatient() {
+
+		public FichePatient getPatient() {
 			return patient;
 		}
-		public void setPatient(patient patient) {
+
+		public void setPatient(FichePatient patient) {
 			this.patient = patient;
 		}
 
-		public List<String> getAntecedents() {
+		public String getAntecedents() {
 			return antecedents;
 		}
-		public void setAntecedents(List<String> antecedents) {
+
+		public void setAntecedents(String antecedents) {
 			this.antecedents = antecedents;
 		}
 
-		public List<String> getExamens() {
+		public String getExamens() {
 			return examens;
 		}
-		public void setExamens(List<String> examens) {
+
+		public void setExamens(String examens) {
 			this.examens = examens;
 		}
 
-		public List<String> getNotes() {
+		public String getNotes() {
 			return notes;
 		}
-		public void setNotes(List<String> notes) {
+
+		public void setNotes(String notes) {
 			this.notes = notes;
 		}
 
-		public List<String> getTraitement() {
+		public String getTraitement() {
 			return traitement;
 		}
-		public void setTraitement(List<String> traitement) {
+
+		public void setTraitement(String traitement) {
 			this.traitement = traitement;
 		}
 
+		public String getCompterendu() {
+			return compterendu;
+		}
 
-	}
-	
+		public void setCompterendu(String compterendu) {
+			this.compterendu = compterendu;
+		}
+	    
+}
 	
 

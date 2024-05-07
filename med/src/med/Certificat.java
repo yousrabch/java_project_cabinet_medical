@@ -2,25 +2,31 @@ package med;
 
 import java.util.Date;
 
+
+
+
 public class Certificat {
 
-	private Patient patient;
-	private Medecin medecin_name;
-	private Medecin medecin_pre;
-	private Medecin medecin_num;
+	private int patient_id;
 	private Date date;
 	private String motif;
-	private int nbr_jour;
+	private String cert;
 	
-	
-	public Certificat(med.patient patient, med.Medecin medecin_name, med.Medecin medecin_pre, med.Medecin medecin_num, Date date, String motif, int nbr_jour) {
-		this.patient = patient;
-		this.medecin_name.getNom();
-		this.medecin_pre.getPrenom();
-		this.medecin_num.getNum();
+
+	public Certificat(int patient_id, Date date, String motif, String cert) {
+		this.patient_id = patient_id;
 		this.date = date;
 		this.motif = motif;
-		this.nbr_jour = nbr_jour;
+		this.cert = cert;
+	}
+	public Certificat(int patient_id2, int i, String motif2, String cert2) {
+		// TODO Auto-generated constructor stub
+	}
+	public String getCert() {
+		return cert;
+	}
+	public void setCert(String cert) {
+		this.cert = cert;
 	}
 
 
@@ -38,22 +44,21 @@ public class Certificat {
 	public void setMotif(String motif) {
 		this.motif = motif;
 	}
-
-
-	public int getNbr_jour() {
-		return nbr_jour;
-	}
-	public void setNbr_jour(int nbr_jour) {
-		this.nbr_jour = nbr_jour;
-	}
 	
  public void AfficheCertificat() {
 	 
-	 System.out.println("Je soussigne,"+medecin_name+medecin_pre+"docteur en medecine, certifie avoir\n"
-	 		+ " examine le"+ date+"Monsieur(ou Madame)"+ patient+".\n Je declare que son etat de sante necessite un arret de travail de"
-	 		+ nbr_jour +"; A compter du :"+ date+
-	 		"\n Certificat etabli a la demande de l'interesse et rmis en main propre pour servir et faire valoir ce que de droit."); 
+	 System.out.println("Certificat:"+cert); 
  }
+
+
+public int getPatient_id() {
+	return patient_id;
+}
+
+
+public void setPatient_id(int patient_id) {
+	this.patient_id = patient_id;
+}
 	
 	
 	
