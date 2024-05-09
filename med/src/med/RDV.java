@@ -1,13 +1,14 @@
 package med;
-import java.time.LocalDateTime;
+import java.sql.Date;
+
 
 public class RDV {
 	private int id_rdv;
-	private LocalDateTime date;
+	private Date date;
 	private String motif;
 	private Patient patient;
 	
-	public RDV(int id_rdv, LocalDateTime date, String motif, Patient patient) {
+	public RDV(int id_rdv, Date date, String motif, Patient patient) {
         this.id_rdv = id_rdv;
         this.date = date;
         this.motif = motif;
@@ -22,11 +23,11 @@ public class RDV {
 		this.id_rdv = id_rdv;
 	}
 
-	public LocalDateTime getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

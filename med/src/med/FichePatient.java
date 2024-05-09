@@ -1,76 +1,111 @@
+package med;
+
 import java.util.Date;
 
-public class FichePatient extends Patient {
-	private String nom;
-	private String prenom;
-	private Date date_n;
-	private char sex;
-	private String num;
-	private String adresse;
-	private String mail;
-	private String tel;
 
-	
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	
-	public String getPrenom() {
-		return prenom;
-	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-	
-	public Date getDate_n() {
-		return date_n;
-	}
-	public void setDate_n(Date date_n) {
-		this.date_n = date_n;
-	}
-	
-	public char getSex() {
-		return sex;
-	}
-	public void setSex(char sex) {
-		this.sex = sex;
-	}
-	
-	public long getNum() {
-		return num;
-	}
-	public void setNump(long num) {
-		this.num = num;
-	}
-	
-	public String getAdressep() {
-		return adresse;
-	}
-	public void setAdressep(String adresse) {
-		this.adresse = adresse;
-	}
-	
-	public String getMail() {
-		return mail;
-	}
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-	
-	public String getTel() {
-		return tel;
-	}
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-	
-	
+public class FichePatient {
+    private int id;
+    private String nom;
+    private String prenom;
+    private Date datenaiss;
+    private String gender;
+    private String adresse;
+    private String email;
+    private String phone;
 
-	}
 
+    public FichePatient (int id, String nom, String prenom,Date datenaiss, String gender, String adresse , String email, String phone) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.datenaiss = datenaiss;
+        this.gender = gender;
+        this.adresse = adresse;
+        this.email = email;
+        this.phone = phone;
+
+    }
+
+
+
+    public FichePatient() {
+    }
+
+
+
+    public String getNom() {
+            return nom;
+
+    }
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+
+
+    public String getPrenom() {
+        return prenom;
+    }
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+
+
+    public Date getDateNaiss() {
+        return datenaiss;
+    }
+    public void setDateNaiss(Date datenaiss) {
+        this.datenaiss = datenaiss;
+    }
+
+
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+
+
+    public int getId() {
+        return id;
+    }
+    public void setNump(int id) {
+        this.id = id;
+    }
+
+
+
+    public String getAdressep() {
+        return adresse;
+    }
+    public void setAdressep(String adresse) {
+        this.adresse = adresse;
+    }
+
+
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+}
 	
 
 

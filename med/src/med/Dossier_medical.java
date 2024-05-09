@@ -11,12 +11,13 @@ public class Dossier_medical {
 	    private String examens;
 	    private String notes;
 	    private String traitement;
-	    private String compterendu;  
+	    private String compterendu; 
+		private Consultation consult; 
 
 	   
 
 	    public Dossier_medical(int num_dossier, FichePatient patient, String antecedents, String examens, String notes,
-				String traitement, String compterendu) {
+				String traitement, String compterendu, Consultation consult) {
 			Num_dossier = num_dossier;
 			this.patient = patient;
 			this.antecedents = antecedents;
@@ -24,6 +25,7 @@ public class Dossier_medical {
 			this.notes = notes;
 			this.traitement = traitement;
 			this.compterendu = compterendu;
+			this.consult = consult;
 		}
 
 
@@ -81,6 +83,14 @@ public class Dossier_medical {
 
 		public void setCompterendu(String compterendu) {
 			this.compterendu = compterendu;
+		}
+
+		public Consultation getConsult(){
+			return consult;
+		}
+
+		public void setConsult(Consultation consult){
+			this.consult = consult;
 		}
 	    
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 public class PatientDAOImpl implements PatientDAO{
 
+
 	@Override
 	public int insert(Patient patient) throws SQLException {
         Connection con = Jdbc.getConnection();
@@ -28,7 +29,6 @@ public class PatientDAOImpl implements PatientDAO{
 		ps.setString(6, patient.getPhone());
 		ps.setString(7, patient.getEmail());
 		ps.setString(8, patient.getAdresse());
-		ps.setInt(9, patient.getDoss().getId());
 		
 		int result = ps.executeUpdate();
 		
@@ -56,7 +56,7 @@ public class PatientDAOImpl implements PatientDAO{
 		ps.setString(6, patient.getPhone());
 		ps.setString(7, patient.getEmail());
 		ps.setString(8, patient.getAdresse());
-		ps.setInt(9, patient.getDoss().getId());
+		//ps.setInt(9, patient.get);
 		
 		int result = ps.executeUpdate();
 		
@@ -85,7 +85,6 @@ public class PatientDAOImpl implements PatientDAO{
 		return result;
 	}
 
-
 	@Override
 	public Patient getById(int id) throws SQLException {
 		Connection con = Jdbc.getConnection();
@@ -107,7 +106,7 @@ public class PatientDAOImpl implements PatientDAO{
 			String phone= rs.getString("phone");
 			
 			
-			patient = new Patient(nom,prenom, phone, email, password, idp, dateNaiss, adresse, gender);
+			patient = new Patient(idp, nom,prenom,  dateNaiss, gender, adresse, phone, email, password );
 			
 		}else {
 			patient = null;
@@ -135,12 +134,12 @@ public class PatientDAOImpl implements PatientDAO{
 			String prenom = rs.getString("prenom");
 			Date dateNaiss = rs.getDate("date de naissance");
 			String gender = rs.getString("sexe");
-			Dossier_Medical doss= new Dossier_medical();
+			//Dossier_medical doss= new Dossier_medical();
 			String adresse = rs.getString("adresse");
 			String phone = rs.getString("numero de telephone");
 			String email = rs.getString("email");
 			String password = rs.getString("password");
-			Patient patient = new Patient(id, nom, prenom, dateNaiss, gender,doss, adresse, phone, email, password);
+			Patient patient = new Patient(id, nom, prenom, dateNaiss, gender,adresse, phone, email, password);
 	        patients.add(patient);
 
 		}

@@ -1,21 +1,24 @@
 package med;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
+
 
 public class Patient extends User{
     private int id;
-    private LocalDateTime dateNaiss;
+    private Date dateNaiss;
     private String adresse;
-    private char gender;
+    private String gender;
     
 
-    public Patient(int id, String nom, String prenom, LocalDateTime dateNaiss, char gender, String adresse, String phone, String email) {
-    	super(nom,prenom,phone,email);
+    public Patient(int id, String nom, String prenom, Date dateNaiss, String gender, String adresse, String phone, String email, String password) {
+    	super(nom,prenom,phone,email,password);
     	this.id = id;
         this.dateNaiss = dateNaiss;
         this.adresse=adresse;
         this.gender = gender;
     }
+
+    public Patient(){}
 
     public int getId() {
         return id;
@@ -26,20 +29,20 @@ public class Patient extends User{
     }
     
 
-    public LocalDateTime getDateNaiss() {
+    public Date getDateNaiss() {
         return dateNaiss;
     }
     
-    public void setDateNaiss(LocalDateTime dateNaiss) {
+    public void setDateNaiss(Date dateNaiss) {
         this.dateNaiss = dateNaiss;
     }
     
     
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
     
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
     

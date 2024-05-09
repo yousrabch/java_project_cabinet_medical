@@ -19,10 +19,12 @@ public class Certificat {
 		this.motif = motif;
 		this.cert = cert;
 	}
-	public Certificat(int patient_id2, int i, String motif2, String cert2) {
-		// TODO Auto-generated constructor stub
-	}
-	public String getCert() {
+
+	public Certificat() {
+        //TODO Auto-generated constructor stub
+    }
+
+    public String getCert() {
 		return cert;
 	}
 	public void setCert(String cert) {

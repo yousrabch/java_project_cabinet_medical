@@ -21,7 +21,7 @@ public class RdvDAOImpl implements RdvDAO  {
 		
 		ps.setInt(1, rdv.getId_rdv());
 		ps.setString(2, rdv.getMotif());
-		ps.setDate(3, rdv.getDate());
+		ps.setDate(3, (Date) rdv.getDate());
 	    ps.setInt(4, rdv.getPatient().getId()); 
 		
 		int result = ps.executeUpdate();
@@ -42,7 +42,7 @@ public class RdvDAOImpl implements RdvDAO  {
 		
 		ps.setInt(1, rdv.getId_rdv());
 		ps.setString(2, rdv.getMotif());
-		ps.setDate(3, rdv.getDate());
+		ps.setDate(3, (Date) rdv.getDate());
 	    ps.setInt(4, rdv.getPatient().getId());
 		
 		int result = ps.executeUpdate();

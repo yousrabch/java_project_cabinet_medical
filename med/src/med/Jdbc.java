@@ -8,13 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class Jbdc { 
+public class Jdbc { 
 	
 	static final String url = "jdbc:mysql://localhost:3306/";
 	static final String user = "root";
 	static final String pass =  "yous31395713";
 
-private Jbdc () {}
+private Jdbc () {}
 
 public static Connection getConnection() throws SQLException {         
 		
@@ -43,21 +43,7 @@ public static void closeResultSet(ResultSet resultSet)throws SQLException {
 	resultSet.close();
 }
 
-public static void main(String[] args) throws SQLException {	
-		
-	//	Connection conn = 
-	//			Jbdc.getConnection();
-	//	
-	//	if(conn != null) {
-			
-	//		System.out.println("connection created");	}
 	
-		CertificatDAO certificatdao = new CertificatDAOImpl(); 
-			Certificat certi =	new Certificat(10, 2024-12-11, "malade sucre", "je sertifier le malade");
-		int result = certificatdao.insert(certi);
-		
-		System.out.println(result);
-}	
 	
 }
 

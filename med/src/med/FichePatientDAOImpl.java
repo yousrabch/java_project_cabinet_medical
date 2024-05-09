@@ -1,12 +1,10 @@
 package med;
-import java.util.ArrayList;
 import java.util.Date;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
+
 
 
 public class FichePatientDAOImpl implements FichePatientDAO {
@@ -25,7 +23,7 @@ public class FichePatientDAOImpl implements FichePatientDAO {
 		ps.setInt(1, fichepatient.getId());
 		ps.setString(2, fichepatient.getNom());
 		ps.setString(3, fichepatient.getPrenom());
-		ps.setDate(4, fichepatient.getDateNaiss());
+		ps.setDate(4, (java.sql.Date) fichepatient.getDateNaiss());
 		ps.setString(5, fichepatient.getGender());
 		ps.setString(6, fichepatient.getPhone());
 		ps.setString(7, fichepatient.getEmail());
@@ -82,10 +80,9 @@ public class FichePatientDAOImpl implements FichePatientDAO {
 			String gender=rs.getString("sex");
 			String email=rs.getString("email");
 			String adresse=rs.getString("adress");
-			String password=rs.getString("password");
 			String phone= rs.getString("phone");
 			
-			fichepatient = new FichePatient(id, nom, prenom, datenaiss, gender, phone, email, adresse);
+			fichepatient = new FichePatient(idp, nom, prenom, datenaiss, gender, phone, email, adresse);
 			
 		}else {
 			fichepatient = null;
@@ -124,39 +121,4 @@ public class FichePatientDAOImpl implements FichePatientDAO {
         return result;
 
     }
-
-	@Override
-	public List<FichePatient> getAll() throws SQLException {
-
-		Connection con = Jdbc.getConnection();
-		
-		String sql = "SELECT * FROM patient";
-		List<FichePatient> fichepatients = new ArrayList<>();
-		
-		Statement stmt = con.createStatement();
-		
-		ResultSet rs = stmt.executeQuery(sql);
-		
-		while(rs.next()) {
-			int id = rs.getInt("id");
-			String nom = rs.getString("nom");
-			String prenom = rs.getString("prenom");
-			Date dateNaiss = rs.getDate("date de naissance");
-			String gender = rs.getString("sexe");
-			String adresse = rs.getString("adresse");
-			String phone = rs.getString("numero de telephone");
-			String email = rs.getString("email");
-			
-			FichePatient fichepatient = new FichePatient(id, nom, prenom, dateNaiss, gender, adresse, phone, email);
-	        fichepatients.add(fichepatient);
-
-		}
-		return fichepatients;
-		
-		
-	}   
-	
-		
-
-
 }

@@ -6,22 +6,21 @@ import java.sql.SQLException;
 
 public class Main {
 
-	public static void main(String[] args) {
-		 try {
-	            Class.forName("oracle.jdbc.driver.OracleDriver");
-	            Connection conn= Jdbc.getConnection();
-
-	            if(conn!=null)
-	                System.out.println("connection gg!");
-	            else
-	                System.out.print("connection fail");
-	        } catch (ClassNotFoundException e) {
-	            e.printStackTrace();
-	        }
-	        catch (SQLException e){
-	            e.printStackTrace();
-	        }
-	    }
+	public static void main(String[] args) throws SQLException {	
+		
+			Connection conn = 
+				Jdbc.getConnection();
+			
+			if(conn != null) {
+				
+				System.out.println("connection created");	}
+		
+			//CertificatDAO certificatdao = new CertificatDAOImpl(); 
+			//	Certificat certi =	new Certificat(10, 2024-12-11, "malade sucre", "je sertifier le malade");
+			//int result = certificatdao.insert(certi);
+			
+			//System.out.println(result);
+	}
 	
 
 	}

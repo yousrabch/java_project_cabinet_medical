@@ -5,12 +5,14 @@ public class User {
     private String prenom;
     private String phone;
     private String email;
+	private String password;
     
-	public User(String nom, String prenom, String phone, String email) {
+	public User(String nom, String prenom, String phone, String email, String password) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.phone = phone;
 		this.email = email;
+		this.password = password;
 	}
 	public User() {}
 	
@@ -40,9 +42,14 @@ public class User {
 	}
 	
 	
+	public String getPassword(){
+		return password;
+	}
 	
-	
-    
+   public void setPassword(String password){
+
+	this.password = password;
+   } 
     
 
 }

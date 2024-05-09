@@ -36,25 +36,22 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public boolean isExist(String email, String cin) throws SQLException {
+	public boolean isExist(String email) throws SQLException {
 		
 		boolean exist = true;
-		Connection con = Jdbc.getConnection();
-		String query = "SELECT id_user FROM user WHERE email = ? and cin = ?";
-		PreparedStatement ps = con.prepareStatement(query);
-		ps.setString(1, email);
-		ps.setString(2, cin);
-		ResultSet result = ps.executeQuery();
-		
-		exist = result.next() ? true : false;
-		
-		Jdbc.closePreparedStatement(ps);
-		Jdbc.closeConnection(con);
-		
-			
-		return exist ;
-	}
+        Connection con = Jdbc.getConnection();
+        String query = "SELECT id_user FROM user WHERE email =?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, email);
+        ResultSet result = ps.executeQuery();
 
-	
+        exist = result.next() ? true : false;
+
+        Jdbc.closePreparedStatement(ps);
+        Jdbc.closeConnection(con);
+
+
+        return exist ;
+	}
 
 }

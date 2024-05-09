@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class CertificatDAOImpl implements CertificatDAO {
 
 	@Override
 	public int insert(Certificat certi) throws SQLException {
-    Connection con = Jbdc.getConnection();
+    Connection con = Jdbc.getConnection();
 		
 		String sql = "INSERT INTO Certificat (date, Patient_id, motif, cert) VALUES (?, ?, ?, ?)";
 		
@@ -27,15 +26,15 @@ public class CertificatDAOImpl implements CertificatDAO {
 		
 		int result = ps.executeUpdate();
 		
-		Jbdc.closePreparedStatement(ps);
-		Jbdc.closeConnection(con);
+		Jdbc.closePreparedStatement(ps);
+		Jdbc.closeConnection(con);
 		
 		return result;
 	}
 
 	@Override
 	public int update(Certificat certi) throws SQLException {
-		Connection connection = Jbdc.getConnection();
+		Connection connection = Jdbc.getConnection();
 
 		String sql = "UPDATE Certificat set td_date = ?, motif = ?, cert = ? where td_date = ?";
 		
@@ -48,15 +47,15 @@ public class CertificatDAOImpl implements CertificatDAO {
 		
 		int result = ps.executeUpdate();
 		
-		Jbdc.closePreparedStatement(ps);
-		Jbdc.closeConnection(connection);
+		Jdbc.closePreparedStatement(ps);
+		Jdbc.closeConnection(connection);
 		
 		return result;
 	}
 
 	@Override
 	public int delete(Certificat certi) throws SQLException {
-		Connection con = Jbdc.getConnection();
+		Connection con = Jdbc.getConnection();
 		String sql = "DELETE FROM Certificat WHERE td_date =?; ";
 		
 		PreparedStatement ps= con.prepareStatement(sql);
@@ -64,8 +63,8 @@ public class CertificatDAOImpl implements CertificatDAO {
 		ps.setDate(1, (Date) certi.getDate());
 		int result = ps.executeUpdate();
 		
-		Jbdc.closePreparedStatement(ps);
-		Jbdc.closeConnection(con);
+		Jdbc.closePreparedStatement(ps);
+		Jdbc.closeConnection(con);
 		
 		return result;
 	}
@@ -73,7 +72,7 @@ public class CertificatDAOImpl implements CertificatDAO {
 	
 	@Override
 	public List<Certificat> getAll() throws SQLException {
-		Connection con = Jbdc.getConnection();
+		Connection con = Jdbc.getConnection();
 		String sql = "SELECT * FROM Certificat";
 
 		List<Certificat> certi = new ArrayList<>();
@@ -89,29 +88,24 @@ public class CertificatDAOImpl implements CertificatDAO {
 			String certificats = rs.getString("cert");
 
 			Certificat certi1 =new Certificat(patientId, odate, Motiff, certificats);
-
+                    
+			certi.add(certi1);
 		}
 
 		return certi;
 	}
 
 	@Override
-	public Certificat save(Certificat t) throws SQLException {
-		Connection con = Jbdc.getConnection();
-		String sql = "COMMIT;";
-	}
-
-	@Override
 	public Certificat get(java.util.Date date) throws SQLException {
 	
-		Connection con = Jbdc.getConnection();
+		Connection con = Jdbc.getConnection();
 		Certificat certi = null;
 
 		String sql = "SELECT * FROM Certificat WHERE td_date = ?";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 
-		ps.setDate(1, date);
+		ps.setDate(1, (Date) date);
 
 		ResultSet rs = ps.executeQuery();
 
@@ -126,12 +120,13 @@ public class CertificatDAOImpl implements CertificatDAO {
 
 }
 
-		Jbdc.closeResultSet(rs);
-		Jbdc.closePreparedStatement(ps);
-		Jbdc.closeConnection(con);
+		Jdbc.closeResultSet(rs);
+		Jdbc.closePreparedStatement(ps);
+		Jdbc.closeConnection(con);
 
 		return certi;
 		
 	}
+
 
 }

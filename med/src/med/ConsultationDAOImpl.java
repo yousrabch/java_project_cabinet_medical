@@ -22,9 +22,9 @@ public class ConsultationDAOImpl implements ConsultationDAO{
 		
 		ps.setInt(1, consultation.getId_consultation());
 		ps.setString(2, consultation.getMotif());
-		ps.setDate(3, consultation.getDateconsult());
-		ps.setInt(4, consultation.getOrd().getId()); 
-	    ps.setInt(5, consultation.getCertificat().getId()); 
+		ps.setDate(3, (Date) consultation.getDateconsult());
+		ps.setInt(4, consultation.getOrd().getOrd_id()); 
+	    ps.setInt(5, consultation.getCertificat().getPatient_id()); 
 	    ps.setInt(6, consultation.getPatient().getId()); 
 		
 		
@@ -48,8 +48,8 @@ public class ConsultationDAOImpl implements ConsultationDAO{
 		ps.setInt(1, consultation.getId_consultation());
 		ps.setString(2, consultation.getMotif());
 		ps.setDate(3, consultation.getDateconsult());
-		ps.setInt(4, consultation.getOrd().getId()); // Assuming getOrd() returns an Ordonnance object with an ID
-	    ps.setInt(5, consultation.getCertificat().getId()); // Assuming getCertificat() returns a Certificat object with an ID
+		ps.setInt(4, consultation.getOrd().getOrd_id()); // Assuming getOrd() returns an Ordonnance object with an ID
+	    ps.setInt(5, consultation.getCertificat().getPatient_id()); // Assuming getCertificat() returns a Certificat object with an ID
 	    ps.setInt(6, consultation.getPatient().getId());
 		
 		int result = ps.executeUpdate();
