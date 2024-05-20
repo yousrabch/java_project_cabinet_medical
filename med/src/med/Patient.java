@@ -4,11 +4,11 @@ import java.sql.Date;
 
 
 public class Patient extends User{
+    
     private int id;
     private Date dateNaiss;
     private String adresse;
     private String gender;
-    
 
     public Patient(int id, String nom, String prenom, Date dateNaiss, String gender, String adresse, String phone, String email, String password) {
     	super(nom,prenom,phone,email,password);
