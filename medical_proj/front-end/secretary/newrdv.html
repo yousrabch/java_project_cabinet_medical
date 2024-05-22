@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="styles.css">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Book an Appointment</title>
+</head>
+
+<body id="body-pd">
+    <div class="ctn">
+        <div class="main">
+            <!--===== SIDE BAR =====-->
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#" class="logo">
+                            <img src="../patient/logo.png" alt="" />
+                            <span class="nav-item">The Medical Cabinet</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../secretary/TablePatient.html">
+                            <i id="icons" class="fa-solid fa-list" style="color: #0091ff;"></i>
+                            <span class="nav-item">Patient List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../secretary/Listrendez-vous.html">
+                            <i id="icons" class="fa-regular fa-calendar-check" style="color: #0091ff;"></i>
+                            <span class="nav-item">Appointment List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../secretary/newrdv.html">
+                            <i id="icons" class="fa-solid fa-calendar-plus" style="color: #0091ff;"></i>
+                            <span class="nav-item">Book Appointment</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../secretary/Consultation.html">
+                            <i id="icons" class="fa-solid fa-file-circle-plus" style="color: #0091ff;"></i>
+                            <span class="nav-item">Add Consultation</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../login/Login.html" class="logout">
+                            <i id="icons" class="fa-solid fa-right-from-bracket" style="color: #0091ff;"></i>
+                            <span class="nav-item">exit</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Sidebar end -->
+            <div class="container">
+                <div class="container-fluid" style="padding-left:10rem;margin-top: 70px">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Appointment </h1>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-12 col-lg-10">
+                            <div class="card shadow mb-4">
+
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Appointment</h6>
+                                </div>
+
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <form action="http://localhost:8080/api/rdv" method="POST">
+
+                                        <div class="form-row d-flex flex-column pb-3">
+                                            <label for="treatment">Type of treatment:</label>
+                                            <div class="form-select">
+                                                <select name="treatment" class="form-control" id="treatmentId">
+                                                    
+                                                    <option value="maladie des enfants">Children's illness</option>
+                                                    <option value="vaccination">vaccination</option>
+                                                    <option value="test">test</option>
+                                                    <option value="maladie des adults">Adult disease</option>
+                                                    <option value="enciente">Pregnant</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-floating">
+                                            <label class="form-label">Description</label>
+                                            <textarea class="form-control" name="description" id="descriptionId" style="height: 100px"></textarea>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label">Date </label>
+                                            <input type="datetime-local" class="form-control" name="datetime" id="datetimeId" required>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary" name="submit" id="submitId">To book</button>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("nav").hover(
+                function() {
+                    $(".main").css("margin-left", "280px");
+                },
+                function() {
+                    $(".main").css("margin-left", "70px");
+                }
+            );
+        });
+
+        // Prevent form resubmission on page refresh
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+    <!--===== MAIN JS =====-->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

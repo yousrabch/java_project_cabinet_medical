@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- ===== BOX ICONS ===== -->
+     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+     
+     <!-- ===== CSS ===== -->
+     <link rel="stylesheet" href="../secretary/TablePatient.css">
+     <link rel="stylesheet" href="../secretary/styles.css">
+     
+     <!--Font Awsome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+     <!-- ===== CSS font ===== -->
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <!--lien dataTable.css-->
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+
+     <title>Patient List</title>
+    </head>
+
+    
+	
+	<body id="body-pd">
+        <div class="ctn">
+            <div class="main">
+	
+        <!--===== SIDE BAR =====-->
+        <nav>
+            <ul>
+              <li>
+                <a href="#" class="logo">
+                  <img src="../patient/logo.png" alt="" />
+                  <span class="nav-item">The Medical Cabinet</span>
+                </a>
+              </li>
+  
+              <li>
+                <a href="../doctor/TablePatientDocteur.html">
+                  <i id="icons" class="fa-solid fa-list" style="color: #0091ff;"></i>
+                  <span class="nav-item">Patient List</span>
+                </a>
+              </li>
+              <li>
+                <a href="../doctor/Listrendez-vousDocteur.html">
+                  <i id="icons" class="fa-regular fa-calendar-check" style="color: #0091ff;"></i>
+                  <span class="nav-item">Appointment List</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login/Login.html" class="logout">
+                  <i id="icons" class="fa-solid fa-right-from-bracket" style="color: #0091ff;"></i>
+                  <span class="nav-item">exit</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- Sidebar end -->
+          <div class="container">
+	<!-- Begin Page Content -->
+		<div class="container-fluid" style="padding-top:70px;">
+
+            <!-- Page Heading -->
+            
+             <h1 class="h3 mb-2 text-gray-800"><b>Patient List </b></h1>
+	
+	        <!-- DataTales Example -->
+	        <div class="card shadow mb-4">
+	            <div class="card-header py-3">
+	            
+	                <h6 class="m-0 font-weight-bold text-primary">Patient Information</h6>
+	            </div>
+	            <div class="card-body">
+	                <div class="table-responsive">
+	                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+	                        <thead>
+	                            <tr>
+	                            	<th>id</th>
+	                                <th>Name</th>
+	                                <th>Full name</th>
+	                                <th>E-mail</th>
+	                                <th>Phone number</th>
+	                                <th>Birth Day</th>
+	                                <th>Gender</th>
+	                                <th>Actions</th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                        	
+	                            <tr>
+	                            	<td></td>
+	                                <td></td>
+	                                <td></td>
+	                                <td></td>
+	                                <td></td>
+	                                <td></td>
+	                                <td></td>
+	                                <td>
+						                
+						                <form action="/CabinetMedicale/Patients" method="POST">
+						                
+							                <a type="button" href="/CabinetMedicale/EditPatient?id=<%= patient.getId_user() %>" class="btn btn-success"> 
+							                    <i class="fas fa-user-edit"></i>
+							                </a>					                
+						                
+						                	<input type="hidden" name="id" value="<%= patient.getId_user() %>" />	
+						                	<button class="btn btn-danger" type="submit"><i class="fas fa-user-times"></i></button>	
+						                	
+						                	<a type="button" href="MedicalFile?id=<%= patient.getId_user() %>" class="btn btn-info"> 
+							                    <i class="fas fa-folder"></i>
+							                </a>			                	
+						                </form>
+						                
+									</td>
+	                                
+	                            </tr>
+								                          
+	                        </tbody>
+	                    </table>
+	                </div>
+	            </div>
+	        </div>
+        </div>
+            </div>
+        </div>
+        </div>
+	    </div>
+	    <!-- End of Main Content -->
+	
+		<!--===== MAIN JS =====-->
+        <script src="js/main.js"></script>
+	
+		<!-- Custom scripts for all pages-->
+	    <script src="js/sb-admin-2.min.js"></script>
+	
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+		<!--script dataTable-->
+	    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+	    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+	    
+	    <script>
+            
+	       	$(document).ready(function() {
+	            var table = $('#dataTable').DataTable();
+	   		 } );
+                $(document).ready(function () {
+                    $("nav").hover(
+                      function () {
+                        $(".main").css("margin-left", "280px");
+                      },
+                      function () {
+                        $(".main").css("margin-left", "70px");
+                      }
+                    );
+            
+                    // Existing script for the prescription section
+                    $("#oui").click(function () {
+                      $("#presc").css("display", "block");
+                    });
+                    $("#non").click(function () {
+                      $("#presc").css("display", "none");
+                    });
+                  });
+            
+                  // Prevent form resubmission on page refresh
+                  if (window.history.replaceState) {
+                    window.history.replaceState(null, null, window.location.href);
+                  }
+    	</script>
+
+    </body>
+</html>
